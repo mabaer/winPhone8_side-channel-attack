@@ -5,9 +5,5 @@ This example was created for the course "Mobile Security Seminar" at TU Darmstad
 
 It is for demonstration and educational use only. It may contain errors or bugs.
 
--App1 ("FakePasswordStorage") is an application which saves passwords and has just capabilities for the MediaLibrary to add pictures to entries but not for the network.
-Without the knowledge of the user the application saves the password information in the MediaLibrary.
-
--App2 ("FakePictureViewer") is an application which should be used as normal picture viewer for local and online pictures. 
-The app checks at each start if new password information are in the MediaLibrary. If yes it parses the information and sends it to a server.
+The Wiki page shows more information about the applications.
 
