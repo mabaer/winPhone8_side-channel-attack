@@ -1,7 +1,7 @@
 # winPhone8_side-channel-attack
-In this project we have two Windows Phone 8 apps which perform a collusion attack via a covert channel.
+In this project we have two Windows Phone 8 apps which perform a collusion attack via a covert channel (MediaLibrary).
 
-This example was created for the course "Mobile Security Seminar" TU Darmstadt in 2013 by Marc-André Bär.
+This example was created for the course "Mobile Security Seminar" at TU Darmstadt in 2013 by Marc-André Bär.
 
 -App1 ("FakePasswordStorage") is an application which saves passwords and has just capabilities for the MediaLibrary to add pictures to entries but not for the network.
 Without the knowledge of the user the application saves the password information in the MediaLibrary.
