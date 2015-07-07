@@ -7,3 +7,5 @@ It is for demonstration and educational use only. It may contain errors or bugs.
 
 The Wiki page shows more information about the applications.
 
+https://github.com/mabaer/winPhone8_side-channel-attack/wiki
+
