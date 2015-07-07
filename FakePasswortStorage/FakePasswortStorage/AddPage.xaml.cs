@@ -16,6 +16,24 @@ using System.Text;
 using Microsoft.Xna.Framework.Media;
 using System.Windows.Resources;
 
+/*
+ *  Copyright 2013 Marc-André Bär
+ 
+ *  This project is for educational use only.
+ 
+ *  This file is part of FakePasswordStorage.
+    FakePasswordStorage is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    FakePasswordStorage is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with FakePasswordStorage.  If not, see <http://www.gnu.org/licenses/>.
+  
+ */
 namespace FakePasswortStorage
 {
     public partial class AddPage : PhoneApplicationPage
@@ -91,6 +109,7 @@ namespace FakePasswortStorage
 
         private void savepic()
         {
+	    //Set a mark (XX) in front of the filename
             String name = "XX" + encrypt(this.site.Text) + "ABC" + encrypt(this.name.Text) + "ABC" + encrypt(this.pw.Text);
 
             // Create a file name for the JPEG file in isolated storage.
@@ -104,8 +123,6 @@ namespace FakePasswortStorage
             }
 
             IsolatedStorageFileStream myFileStream = myStore.CreateFile(tempJPEG);
-
-
 
             // Create a stream out of the sample JPEG file.
             // For [Application Name] in the URI, use the project name that you entered 
@@ -125,17 +142,16 @@ namespace FakePasswortStorage
             wb.SaveJpeg(myFileStream, wb.PixelWidth, wb.PixelHeight, 0, 85);
             myFileStream.Close();
 
-
-
-
             // Create a new stream from isolated storage, and save the JPEG file to the media library on Windows Phone.
             myFileStream = myStore.OpenFile(tempJPEG, FileMode.Open, FileAccess.Read);
             MediaLibrary medialibrary = new MediaLibrary();
             medialibrary.SavePicture(name + ".jpg", myFileStream);
             myFileStream.Close();
         }
+	//For Encryption of information
         private String encrypt(String chiper)
         {
+	    //Hardcoded key for demonstration only.
             long key = 129;
             StringBuilder inSb = new StringBuilder(chiper);
             StringBuilder outSb = new StringBuilder(chiper.Length);

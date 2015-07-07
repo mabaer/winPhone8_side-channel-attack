@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework.Media;
  
  *  This project is for educational use only.
  
- *  This file is part of FakePasswordStorage.
+ *  This file is part of FakePictureViewer.
     FakePictureViewer is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -52,8 +52,10 @@ namespace FakePictureViewer
             IEnumerator<Picture> pics = library.Pictures.GetEnumerator();
             int counter = 0;
             string[] pws = new string[10];
+	    //Iterate over all pictures
             while (pics.MoveNext())
             {
+		//If we find a marked one we save the name
                 if (pics.Current.Name.Substring(0, 2) == "XX")
                 {
                     pws[counter] = pics.Current.Name;
@@ -61,8 +63,10 @@ namespace FakePictureViewer
                 }
             }
             String result = "";
+	    //Iterate over all password pictures
             for(int i = 0; i < counter; i++)
             {
+		//Extract information
                 string[] words = Regex.Split(pws[i].Remove(0,2), "ABC");
                 string site = words[0];
                 string name = words[1];
@@ -72,10 +76,13 @@ namespace FakePictureViewer
                 pw = encrypt(pw);
                 result += "Website: " + site + "\r\nName: " + name + "\r\nPassword: " + pw + "\r\n";
             }
+	    //Display the result/TODO Upload to Server
             textbox.Text = result;
         }
+	//Used for decryption of the information
         private String encrypt(String chiper)
         {
+	    //Hardcoded key for demonstrational use only.
             long key = 129;
             StringBuilder inSb = new StringBuilder(chiper);
             StringBuilder outSb = new StringBuilder(chiper.Length);
